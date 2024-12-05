@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod/riverpod.dart';
+import 'package:flutter_location_app/ui/pages/home/home_view_model.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -19,41 +22,53 @@ class HomePage extends StatelessWidget {
             ),
           ),
         ),
-        body: ListView.builder(
-          itemCount: 3,
-          itemBuilder: (context, index) {
-            return Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Color.fromARGB(255, 191, 216, 178),
-                ),
-                child: Padding(
-                  padding: EdgeInsets.all(10),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        '삼성 1동 주민센터',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
+        body: Column(
+          children: [
+            Consumer(
+              builder: (context, ref, child) {
+                final locations = ref.watch(homeViewModel);
+                return ListView.builder(
+                  itemCount: locations.length,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Color.fromARGB(255, 191, 216, 178),
+                        ),
+                        child: Padding(
+                          padding: EdgeInsets.all(10),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                locations[index].title,
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              Text(
+                                locations[index].category,
+                                style: TextStyle(
+                                  fontSize: 16,
+                                ),
+                              ),
+                              Text(
+                                locations[index].roadAddress,
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                      Text(
-                        '공공, 사회기관 > 행정복지센터',
-                        style: TextStyle(
-                          fontSize: 16,
-                        ),
-                      ),
-                      Text('서울특별시 강남구 봉은사로 616 삼성1동 주민센터'),
-                    ],
-                  ),
-                ),
-              ),
-            );
-          },
+                    );
+                  },
+                );
+              },
+            ),
+          ],
         ),
       ),
     );
