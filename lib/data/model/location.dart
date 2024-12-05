@@ -1,26 +1,26 @@
 class Location {
   String title;
   String category;
-  String address;
+  String roadAddress;
 
   Location({
     required this.title,
     required this.category,
-    required this.address,
+    required this.roadAddress,
   });
 
   Location.fromJson(Map<String, dynamic> map)
       : this(
           title: map['title'],
           category: map['category'],
-          address: map['address'],
+          roadAddress: map['roadAddress'],
         );
 
   Map<String, dynamic> toJson() {
     return {
       'title': title,
       'category': category,
-      'address': address,
+      'roadAddress': roadAddress,
     };
   }
 }
