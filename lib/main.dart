@@ -15,6 +15,29 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        inputDecorationTheme: InputDecorationTheme(
+            hintStyle: TextStyle(
+              color: Colors.grey,
+              fontWeight: FontWeight.bold,
+            ),
+            border: MaterialStateOutlineInputBorder.resolveWith((states) {
+              if (states.contains(WidgetState.focused)) {
+                return OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: BorderSide(
+                    color: Colors.black,
+                    width: 2,
+                  ),
+                );
+              }
+              return OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide: BorderSide(
+                  color: Colors.grey[300]!,
+                  width: 2,
+                ),
+              );
+            })),
       ),
       home: HomePage(),
     );
