@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_location_app/ui/pages/home/home_view_model.dart';
+import 'package:flutter_location_app/ui/pages/home/widgets/home_search_bar.dart';
 import 'package:flutter_location_app/ui/pages/home/widgets/location_list_view.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_location_app/ui/pages/home/home_view_model.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -13,31 +14,16 @@ class HomePage extends StatelessWidget {
         FocusScope.of(context).unfocus();
       },
       child: Scaffold(
+        //appBar: AppBar(),
         backgroundColor: Colors.white,
         appBar: AppBar(
           backgroundColor: Colors.transparent,
-          title: Consumer(
-            builder: (context, ref, child) {
-              return Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 5),
-                child: TextField(
-                  onSubmitted: (value) {
-                    if (value.trim().isNotEmpty) {
-                      final viewModel = ref.read(homeViewModel.notifier);
-                      viewModel.searchByLocation(value);
-                    }
-                  },
-                  decoration: InputDecoration(
-                    hintText: '읍/면/동으로 검색하세요',
-                  ),
-                ),
-              );
-            },
-          ),
+          title: Text('지역 검색'),
         ),
         body: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            SizedBox(height: 10),
+            HomeSearchBar(),
             LocationListView(),
           ],
         ),

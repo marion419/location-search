@@ -20,24 +20,26 @@ class MyApp extends StatelessWidget {
               color: Colors.grey,
               fontWeight: FontWeight.bold,
             ),
-            border: MaterialStateOutlineInputBorder.resolveWith((states) {
-              if (states.contains(WidgetState.focused)) {
-                return OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                  borderSide: BorderSide(
-                    color: Colors.black,
-                    width: 2,
-                  ),
-                );
-              }
-              return OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
-                borderSide: BorderSide(
-                  color: Colors.grey[300]!,
-                  width: 2,
-                ),
-              );
-            })),
+            border: InputBorder.none
+            // border: MaterialStateOutlineInputBorder.resolveWith((states) {
+            //   if (states.contains(WidgetState.focused)) {
+            //     return OutlineInputBorder(
+            //       borderRadius: BorderRadius.circular(10),
+            //       borderSide: BorderSide(
+            //         color: Colors.black,
+            //         width: 2,
+            //       ),
+            //     );
+            //   }
+            //   return OutlineInputBorder(
+            //     borderRadius: BorderRadius.circular(10),
+            //     borderSide: BorderSide(
+            //       color: Colors.grey[300]!,
+            //       width: 2,
+            //     ),
+            //   );
+            // }),
+            ),
       ),
       home: HomePage(),
     );
