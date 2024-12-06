@@ -18,16 +18,18 @@ class HomePage extends StatelessWidget {
           backgroundColor: Colors.transparent,
           title: Consumer(
             builder: (context, ref, child) {
-              return TextField(
-                onSubmitted: (value) {
-                  if (value.trim().isNotEmpty) {
-                    final viewModel = ref.read(homeViewModel.notifier);
-                    viewModel.searchByLocation(value);
-                  }
-                },
-                decoration: InputDecoration(
-                  hintText: '읍/면/동으로 검색하세요',
-                  contentPadding: EdgeInsets.all(20),
+              return Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 5),
+                child: TextField(
+                  onSubmitted: (value) {
+                    if (value.trim().isNotEmpty) {
+                      final viewModel = ref.read(homeViewModel.notifier);
+                      viewModel.searchByLocation(value);
+                    }
+                  },
+                  decoration: InputDecoration(
+                    hintText: '읍/면/동으로 검색하세요',
+                  ),
                 ),
               );
             },
@@ -35,6 +37,7 @@ class HomePage extends StatelessWidget {
         ),
         body: Column(
           children: [
+            SizedBox(height: 10),
             Consumer(
               builder: (context, ref, child) {
                 final locations = ref.watch(homeViewModel);
