@@ -8,7 +8,8 @@ void main() {
 {
   "title": "title",
   "category": "category",
-  "roadAddress": "roadAddress"
+  "roadAddress": "roadAddress",
+  "link": "link"
 }
 """;
 
