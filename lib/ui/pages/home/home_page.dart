@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod/riverpod.dart';
 import 'package:flutter_location_app/ui/pages/home/home_view_model.dart';
 
 class HomePage extends StatelessWidget {
