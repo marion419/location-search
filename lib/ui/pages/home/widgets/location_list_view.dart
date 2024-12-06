@@ -14,42 +14,50 @@ class LocationListView extends StatelessWidget {
         final locations = ref.watch(homeViewModel);
         return Expanded(
           child: ListView.builder(
-            itemCount: locations.length,
+            itemCount: locations.isNotEmpty ? locations.length : 1,
             itemBuilder: (context, index) {
-              return Padding(
-                padding: EdgeInsets.symmetric(horizontal: 25, vertical: 10),
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    //border: Border.all(color: Colors.grey[700]!),
-                    color: Colors.grey[200],
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.all(20),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          locations[index].title,
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
+              if (locations.isEmpty) {
+                return Container(
+                  padding: EdgeInsets.symmetric(vertical: 200),
+                  alignment: Alignment.center,
+                  child: Text('검색 결과가 없습니다'),
+                );
+              } else {
+                return Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      //border: Border.all(color: Colors.grey[700]!),
+                      color: Colors.grey[200],
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.all(20),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            locations[index].title,
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
-                        ),
-                        Text(
-                          locations[index].category,
-                          style: TextStyle(
-                            fontSize: 16,
+                          Text(
+                            locations[index].category,
+                            style: TextStyle(
+                              fontSize: 16,
+                            ),
                           ),
-                        ),
-                        Text(
-                          locations[index].roadAddress,
-                        ),
-                      ],
+                          Text(
+                            locations[index].roadAddress,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              );
+                );
+              }
             },
           ),
         );
