@@ -16,10 +16,21 @@ class HomePage extends StatelessWidget {
         backgroundColor: Colors.white,
         appBar: AppBar(
           backgroundColor: Colors.transparent,
-          title: TextField(
-            decoration: InputDecoration(
-              hintText: '읍/면/동으로 검색하세요',
-            ),
+          title: Consumer(
+            builder: (context, ref, child) {
+              return TextField(
+                onSubmitted: (value) {
+                  if (value.trim().isNotEmpty) {
+                    final viewModel = ref.read(homeViewModel.notifier);
+                    viewModel.searchByLocation(value);
+                  }
+                },
+                decoration: InputDecoration(
+                  hintText: '읍/면/동으로 검색하세요',
+                  contentPadding: EdgeInsets.all(20),
+                ),
+              );
+            },
           ),
         ),
         body: Column(
@@ -27,44 +38,46 @@ class HomePage extends StatelessWidget {
             Consumer(
               builder: (context, ref, child) {
                 final locations = ref.watch(homeViewModel);
-                return ListView.builder(
-                  itemCount: locations.length,
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: Color.fromARGB(255, 191, 216, 178),
-                        ),
-                        child: Padding(
-                          padding: EdgeInsets.all(10),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                locations[index].title,
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
+                return Expanded(
+                  child: ListView.builder(
+                    itemCount: locations.length,
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Color.fromARGB(255, 191, 216, 178),
+                          ),
+                          child: Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  locations[index].title,
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
-                              ),
-                              Text(
-                                locations[index].category,
-                                style: TextStyle(
-                                  fontSize: 16,
+                                Text(
+                                  locations[index].category,
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                  ),
                                 ),
-                              ),
-                              Text(
-                                locations[index].roadAddress,
-                              ),
-                            ],
+                                Text(
+                                  locations[index].roadAddress,
+                                ),
+                              ],
+                            ),
                           ),
                         ),
-                      ),
-                    );
-                  },
+                      );
+                    },
+                  ),
                 );
               },
             ),
