@@ -13,7 +13,6 @@ class HomePage extends StatelessWidget {
       },
       child: Scaffold(
         //appBar: AppBar(),
-        backgroundColor: Colors.white,
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           title: Text(

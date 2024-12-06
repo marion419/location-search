@@ -14,32 +14,23 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        scaffoldBackgroundColor: Colors.white,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
+        appBarTheme: AppBarTheme(
+          backgroundColor: Colors.transparent,
+          titleTextStyle: TextStyle(
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+            fontSize: 20,
+          ),
+        ),
         inputDecorationTheme: InputDecorationTheme(
-            hintStyle: TextStyle(
-              color: Colors.grey,
-              fontWeight: FontWeight.bold,
-            ),
-            border: InputBorder.none
-            // border: MaterialStateOutlineInputBorder.resolveWith((states) {
-            //   if (states.contains(WidgetState.focused)) {
-            //     return OutlineInputBorder(
-            //       borderRadius: BorderRadius.circular(10),
-            //       borderSide: BorderSide(
-            //         color: Colors.black,
-            //         width: 2,
-            //       ),
-            //     );
-            //   }
-            //   return OutlineInputBorder(
-            //     borderRadius: BorderRadius.circular(10),
-            //     borderSide: BorderSide(
-            //       color: Colors.grey[300]!,
-            //       width: 2,
-            //     ),
-            //   );
-            // }),
-            ),
+          hintStyle: TextStyle(
+            color: Colors.grey,
+            fontWeight: FontWeight.bold,
+          ),
+          border: InputBorder.none,
+        ),
       ),
       home: HomePage(),
     );
