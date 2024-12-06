@@ -31,8 +31,10 @@ class LocationListView extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) =>
-                                DetailPage(link: locations[index].link),
+                            builder: (context) => DetailPage(
+                              link: locations[index].link,
+                              title: locations[index].title,
+                            ),
                           ));
                     },
                     child: Container(
