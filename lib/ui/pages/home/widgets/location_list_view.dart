@@ -28,14 +28,14 @@ class LocationListView extends StatelessWidget {
                   padding: EdgeInsets.symmetric(horizontal: 25, vertical: 10),
                   child: GestureDetector(
                     onTap: () {
-                      Navigator.push(
+                      if (locations[index].link.startsWith('https')) {
+                        Navigator.push(
                           context,
-                          MaterialPageRoute(
-                            builder: (context) => DetailPage(
-                              link: locations[index].link,
-                              title: locations[index].title,
-                            ),
-                          ));
+                          MaterialPageRoute(builder: (context) {
+                            return DetailPage(locations[index]);
+                          }),
+                        );
+                      }
                     },
                     child: Container(
                       decoration: BoxDecoration(

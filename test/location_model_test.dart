@@ -16,5 +16,6 @@ void main() {
     Map<String, dynamic> map = jsonDecode(dummyData);
     Location location = Location.fromJson(map);
     expect(location.title, 'title');
+    print(location.link);
   });
 }

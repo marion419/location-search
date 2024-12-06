@@ -7,7 +7,7 @@ void main() {
     final result = await locationRepo.findByLocation('삼성동');
     expect(result.isEmpty, false);
     for (var loca in result) {
-      print(loca.toJson());
+      print(loca.link);
     }
   });
 }
