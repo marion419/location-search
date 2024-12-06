@@ -18,7 +18,10 @@ class HomePage extends StatelessWidget {
         backgroundColor: Colors.white,
         appBar: AppBar(
           backgroundColor: Colors.transparent,
-          title: Text('지역 검색'),
+          title: Text(
+            'Location Search',
+            style: TextStyle(fontFamily: "Inter", fontWeight: FontWeight.w100),
+          ),
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.start,
