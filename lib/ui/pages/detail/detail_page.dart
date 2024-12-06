@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 
 class DetailPage extends StatelessWidget {
+  String link;
+
+  DetailPage({super.key, required this.link});
+
   @override
   Widget build(BuildContext context) {
-    throw UnimplementedError();
+    return Text(link);
   }
 }
