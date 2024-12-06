@@ -19,7 +19,18 @@ class HomeSearchBar extends StatelessWidget {
         ),
         child: Row(
           children: [
-            SizedBox(width: 30),
+            SizedBox(width: 10),
+            Icon(
+              Icons.search,
+              color: Colors.grey[400],
+            ),
+            SizedBox(width: 10),
+            Container(
+              width: 2,
+              height: 20,
+              color: Colors.grey[400],
+            ),
+            SizedBox(width: 10),
             Flexible(
               child: Consumer(
                 builder: (context, ref, child) {
@@ -41,11 +52,6 @@ class HomeSearchBar extends StatelessWidget {
             GestureDetector(
               onTap: () {},
               child: Icon(Icons.gps_fixed),
-            ),
-            SizedBox(width: 10),
-            GestureDetector(
-              onTap: () {},
-              child: Icon(Icons.search),
             ),
             SizedBox(width: 10),
           ],
