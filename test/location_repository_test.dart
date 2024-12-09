@@ -1,4 +1,5 @@
 import 'package:flutter_location_app/data/repository/location_repository.dart';
+import 'package:flutter_location_app/data/repository/vworld_repository.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
@@ -9,5 +10,14 @@ void main() {
     for (var loca in result) {
       print(loca.link);
     }
+  });
+
+  final vWorldRepo = VworldRepository();
+  test('latlng', () async {
+    final result = await vWorldRepo.findDistrict(35.2210076, 129.0826365);
+    expect(result.isEmpty, false);
+    print(result);
+    final result2 = await vWorldRepo.findDistrict(30.2210076, 129.0826365);
+    expect(result2.isEmpty, true);
   });
 }
