@@ -21,20 +21,20 @@ class MapPage extends StatelessWidget {
         title: Text(title),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30),
+        padding: const EdgeInsets.symmetric(horizontal: 10),
         child: Center(
           child: Column(
             children: [
               SizedBox(height: 50),
               KakaoMapView(
-                width: 400,
+                width: double.infinity,
                 height: 400,
                 kakaoMapKey: '08eebe69029ef27e6209ec2d97b79d29',
                 lat: double.parse(lat) / 10000000,
                 lng: double.parse(lng) / 10000000,
                 showZoomControl: true,
               ),
-              SizedBox(height: 30),
+              SizedBox(height: 50),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
