@@ -68,8 +68,9 @@ class _HomeSearchBarState extends State<HomeSearchBar> {
                         await GeolocatorHelper.getPosition();
                     if (currentLocation != null) {
                       final viewModel = ref.read(homeViewModel.notifier);
-                      viewModel.searchByLatLng(
+                      String district = await viewModel.searchByLatLng(
                           currentLocation.latitude, currentLocation.longitude);
+                      textEditingController.text = district;
                     }
                   },
                   child: Container(
