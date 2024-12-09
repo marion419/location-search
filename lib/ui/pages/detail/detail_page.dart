@@ -3,9 +3,9 @@ import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:flutter_location_app/data/model/location.dart';
 
 class DetailPage extends StatelessWidget {
-  Location location;
+  final Location location;
 
-  DetailPage(this.location);
+  const DetailPage(this.location, {super.key});
 
   @override
   Widget build(BuildContext context) {

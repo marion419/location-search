@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_location_app/core/geolocator_helper.dart';
 import 'package:flutter_location_app/ui/pages/home/home_view_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:geolocator/geolocator.dart';
 
 class HomeSearchBar extends StatefulWidget {
   @override
