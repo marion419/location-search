@@ -9,7 +9,9 @@ void main() {
   "title": "title",
   "category": "category",
   "roadAddress": "roadAddress",
-  "link": "link"
+  "link": "link",
+  "mapx": "1.0",
+  "mapy": "1.0"
 }
 """;
 
