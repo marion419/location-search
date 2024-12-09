@@ -40,11 +40,12 @@
 </details>
 
 ## 💡 어떻게 사용하나요?
-![](https://velog.velcdn.com/images/utiranoj/post/b7815168-ca3c-4ce0-b43e-419cf852cf7a/image.gif)
-![](https://velog.velcdn.com/images/utiranoj/post/f37b1c5c-d18b-41f5-be18-8bac1bd583b3/image.gif)
+![](https://velog.velcdn.com/images/utiranoj/post/0b486109-e7a9-47d7-b29d-5bcb513d04b9/image.gif)
+![](https://velog.velcdn.com/images/utiranoj/post/5596cc53-879b-4d74-a5fb-4d7583539c0b/image.gif)
 
 - 검색창에 ``읍/면/동`` 을 입력합니다.
-- 우상단 아이콘을 클릭하면 현위치의 행정구역으로 검색합니다.
+- 왼쪽 위 ``새로고침 아이콘`` 을 클릭하면 검색창을 초기 상태로 되돌립니다.
+- 오른쪽 위 ``gps 아이콘`` 을 클릭하면 현위치의 행정구역으로 검색합니다.
 - 원하는 시설을 클릭하면 해당 시설에 연결된 사이트를 보여줍니다.
 - 연결된 사이트가 없을 경우 주의 문구를 띄웁니다.
 - 지도 모양 아이콘을 클릭하면 해당 시설의 위치를 표시한 지도를 보여줍니다.
