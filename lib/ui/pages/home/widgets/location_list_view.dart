@@ -65,10 +65,7 @@ class LocationListView extends StatelessWidget {
                                     Navigator.push(context, MaterialPageRoute(
                                       builder: (context) {
                                         return MapPage(
-                                          title: locations[index].title,
-                                          address: locations[index].roadAddress,
-                                          lat: locations[index].latitude,
-                                          lng: locations[index].longitude,
+                                          location: locations[index],
                                         );
                                       },
                                     ));

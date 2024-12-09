@@ -1,24 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_location_app/data/model/location.dart';
+import 'package:flutter_location_app/ui/pages/map/widgets/information_box.dart';
 import 'package:kakaomap_webview/kakaomap_webview.dart';
 
 class MapPage extends StatelessWidget {
-  String title;
-  String address;
-  String lat;
-  String lng;
-  MapPage({
-    super.key,
-    required this.title,
-    required this.address,
-    required this.lat,
-    required this.lng,
-  });
+  Location location;
+
+  MapPage({super.key, required this.location});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
+        title: Text('지도 보기'),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -30,27 +24,28 @@ class MapPage extends StatelessWidget {
                 width: double.infinity,
                 height: 400,
                 kakaoMapKey: '08eebe69029ef27e6209ec2d97b79d29',
-                lat: double.parse(lat) / 10000000,
-                lng: double.parse(lng) / 10000000,
+                lat: double.parse(location.latitude) / 10000000,
+                lng: double.parse(location.longitude) / 10000000,
                 showZoomControl: true,
               ),
               SizedBox(height: 50),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    '주소',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
+                  InformationBox(
+                    title: '시설 이름',
+                    information: location.title,
                   ),
-                  Text(
-                    address,
-                    style: TextStyle(
-                      fontSize: 16,
-                    ),
+                  SizedBox(height: 25),
+                  InformationBox(
+                    title: '주소',
+                    information: location.roadAddress,
                   ),
+                  SizedBox(height: 25),
+                  InformationBox(
+                    title: '시설 분류',
+                    information: location.category,
+                  )
                 ],
               ),
             ],
