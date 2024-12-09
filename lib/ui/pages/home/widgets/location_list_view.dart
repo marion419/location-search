@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_location_app/ui/pages/detail/detail_page.dart';
 import 'package:flutter_location_app/ui/pages/home/home_view_model.dart';
+import 'package:flutter_location_app/ui/pages/map/map_page.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class LocationListView extends StatelessWidget {
@@ -60,7 +61,13 @@ class LocationListView extends StatelessWidget {
                                 ),
                                 Spacer(),
                                 GestureDetector(
-                                  onTap: () {},
+                                  onTap: () {
+                                    Navigator.push(context, MaterialPageRoute(
+                                      builder: (context) {
+                                        return MapPage();
+                                      },
+                                    ));
+                                  },
                                   child: Container(
                                     width: 50,
                                     height: 50,
