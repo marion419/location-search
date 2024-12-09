@@ -17,7 +17,10 @@ class HomePage extends StatelessWidget {
           backgroundColor: Colors.transparent,
           title: Text(
             'Location Search',
-            style: TextStyle(fontFamily: "Inter", fontWeight: FontWeight.w100),
+            style: TextStyle(
+                fontFamily: "Inter",
+                fontWeight: FontWeight.w100,
+                color: Theme.of(context).primaryColor),
           ),
         ),
         body: Column(

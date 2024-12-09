@@ -36,13 +36,20 @@ class LocationListView extends StatelessWidget {
                             return DetailPage(locations[index]);
                           }),
                         );
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text('홈페이지가 존재하지 않습니다'),
+                            duration: Duration(seconds: 1),
+                          ),
+                        );
                       }
                     },
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         //border: Border.all(color: Colors.grey[700]!),
-                        color: Colors.grey[200],
+                        color: Theme.of(context).colorScheme.tertiary,
                       ),
                       child: Padding(
                         padding: EdgeInsets.only(
@@ -65,9 +72,8 @@ class LocationListView extends StatelessWidget {
                                     Navigator.push(context, MaterialPageRoute(
                                       builder: (context) {
                                         return MapPage(
-                                            title: locations[index].title,
-                                            address:
-                                                locations[index].roadAddress);
+                                          location: locations[index],
+                                        );
                                       },
                                     ));
                                   },
@@ -78,6 +84,8 @@ class LocationListView extends StatelessWidget {
                                     child: Icon(
                                       Icons.location_on,
                                       size: 25,
+                                      color:
+                                          Theme.of(context).colorScheme.primary,
                                     ),
                                   ),
                                 )
@@ -86,8 +94,8 @@ class LocationListView extends StatelessWidget {
                             Text(
                               locations[index].category,
                               style: TextStyle(
-                                fontSize: 16,
-                              ),
+                                  fontSize: 16,
+                                  color: Theme.of(context).colorScheme.primary),
                             ),
                             Text(
                               locations[index].roadAddress,
