@@ -3,6 +3,8 @@ import 'package:flutter_location_app/data/repository/location_repository.dart';
 import 'package:flutter_location_app/data/repository/vworld_repository.dart';
 import 'package:riverpod/riverpod.dart';
 
+// ViewModel
+// 상태 클래스는 List<Location>으로 대체
 class HomeViewModel extends AutoDisposeNotifier<List<Location>> {
   @override
   List<Location> build() {
@@ -22,6 +24,7 @@ class HomeViewModel extends AutoDisposeNotifier<List<Location>> {
   }
 }
 
+// Provider
 final homeViewModel =
     NotifierProvider.autoDispose<HomeViewModel, List<Location>>(
         () => HomeViewModel());

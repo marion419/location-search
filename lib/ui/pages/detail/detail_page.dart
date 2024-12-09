@@ -13,6 +13,7 @@ class DetailPage extends StatelessWidget {
       appBar: AppBar(
         title: Text(location.title),
         actions: [
+          // 홈페이지로 이동하는 버튼
           Container(
             padding: EdgeInsets.only(right: 30),
             width: 50,
@@ -33,6 +34,7 @@ class DetailPage extends StatelessWidget {
           ),
         ],
       ),
+      // inappwebview
       body: InAppWebView(
         initialUrlRequest: URLRequest(
           url: WebUri(location.link),

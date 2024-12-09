@@ -26,7 +26,9 @@ class HomePage extends StatelessWidget {
         body: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
+            // 검색 바
             HomeSearchBar(),
+            // 검색 결과 리스트
             LocationListView(),
           ],
         ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// MapPage에 정보 보여주는 위젯
 class InformationBox extends StatelessWidget {
   String title;
   String information;

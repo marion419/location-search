@@ -13,22 +13,26 @@ class LocationListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer(
       builder: (context, ref, child) {
+        // 검색 결과를 저장할 리스트
         final locations = ref.watch(homeViewModel);
         return Expanded(
           child: ListView.builder(
             itemCount: locations.isNotEmpty ? locations.length : 1,
             itemBuilder: (context, index) {
+              // locations 리스트가 빈 경우
               if (locations.isEmpty) {
                 return Container(
                   padding: EdgeInsets.symmetric(vertical: 200),
                   alignment: Alignment.center,
                   child: Text('검색 결과가 없습니다'),
                 );
+                // 검색 결과가 존재하는 경우
               } else {
                 return Padding(
                   padding: EdgeInsets.symmetric(horizontal: 25, vertical: 10),
                   child: GestureDetector(
                     onTap: () {
+                      // 링크가 'https'로 시작하면 DetailPage로 이동
                       if (locations[index].link.startsWith('https')) {
                         Navigator.push(
                           context,
@@ -36,6 +40,7 @@ class LocationListView extends StatelessWidget {
                             return DetailPage(locations[index]);
                           }),
                         );
+                        // 링크 형식이 적절하지 않거나 없는 경우 스낵바 띄움
                       } else {
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
@@ -45,10 +50,10 @@ class LocationListView extends StatelessWidget {
                         );
                       }
                     },
+                    // 리스트 박스 UI 구성
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        //border: Border.all(color: Colors.grey[700]!),
                         color: Theme.of(context).colorScheme.tertiary,
                       ),
                       child: Padding(
@@ -67,6 +72,7 @@ class LocationListView extends StatelessWidget {
                                   ),
                                 ),
                                 Spacer(),
+                                // 지도 페이지 이동 버튼
                                 GestureDetector(
                                   onTap: () {
                                     Navigator.push(context, MaterialPageRoute(
@@ -91,12 +97,14 @@ class LocationListView extends StatelessWidget {
                                 )
                               ],
                             ),
+                            // 시설 분류
                             Text(
                               locations[index].category,
                               style: TextStyle(
                                   fontSize: 16,
                                   color: Theme.of(context).colorScheme.primary),
                             ),
+                            // 시설 주소(도로명)
                             Text(
                               locations[index].roadAddress,
                             ),

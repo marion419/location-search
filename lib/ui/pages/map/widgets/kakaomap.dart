@@ -19,8 +19,11 @@ class KaKaoMap extends StatelessWidget {
       kakaoMapKey: '08eebe69029ef27e6209ec2d97b79d29',
       lat: double.parse(location.latitude) / 10000000,
       lng: double.parse(location.longitude) / 10000000,
+      // 지도 축적 확대/축소버튼 넣는 옵션
       showZoomControl: true,
+      // 맵 마커 클릭 이벤트
       onTapMarker: (p0) {
+        // 링크가 'https'로 시작하면 DetailPage로 이동
         if (location.link.startsWith('https')) {
           Navigator.push(
             context,
@@ -30,6 +33,7 @@ class KaKaoMap extends StatelessWidget {
               },
             ),
           );
+          // 링크 형식이 적절하지 않거나 없는 경우 스낵바 띄움
         } else {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(

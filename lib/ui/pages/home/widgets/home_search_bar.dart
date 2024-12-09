@@ -21,8 +21,8 @@ class _HomeSearchBarState extends State<HomeSearchBar> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(20),
+      // 검색 바
       child: Container(
-        //padding: EdgeInsets.all(20),
         decoration: BoxDecoration(
           border: Border.all(
             width: 2,
@@ -33,14 +33,17 @@ class _HomeSearchBarState extends State<HomeSearchBar> {
         child: Row(
           children: [
             SizedBox(width: 10),
+            // 돋보기 아이콘
             Icon(Icons.search, color: Theme.of(context).colorScheme.secondary),
             SizedBox(width: 10),
+            // 세로선
             Container(
               width: 2,
               height: 20,
               color: Theme.of(context).colorScheme.secondary,
             ),
             SizedBox(width: 10),
+            // 검색창 textfield
             Flexible(
               child: Consumer(
                 builder: (context, ref, child) {
@@ -60,6 +63,7 @@ class _HomeSearchBarState extends State<HomeSearchBar> {
               ),
             ),
             SizedBox(width: 10),
+            // 현위치로 검색하는 버튼
             Consumer(
               builder: (context, ref, child) {
                 return GestureDetector(
@@ -70,7 +74,8 @@ class _HomeSearchBarState extends State<HomeSearchBar> {
                       final viewModel = ref.read(homeViewModel.notifier);
                       String district = await viewModel.searchByLatLng(
                           currentLocation.latitude, currentLocation.longitude);
-                      textEditingController.text = district;
+                      textEditingController.text =
+                          district; // 검색창에 보이는 검색어 현위치로 업데이트
                     }
                   },
                   child: Container(
