@@ -34,8 +34,26 @@ class _HomeSearchBarState extends State<HomeSearchBar> {
           children: [
             SizedBox(width: 10),
             // 돋보기 아이콘
-            Icon(Icons.search, color: Theme.of(context).colorScheme.secondary),
-            SizedBox(width: 10),
+            Consumer(
+              builder: (context, ref, child) {
+                return Container(
+                  width: 50,
+                  height: 50,
+                  color: Colors.transparent,
+                  child: GestureDetector(
+                    onTap: () {
+                      textEditingController.text = '';
+                      final viewModel = ref.read(homeViewModel.notifier);
+                      viewModel.searchByLocation('');
+                    },
+                    child: Icon(
+                      Icons.refresh,
+                      color: Theme.of(context).colorScheme.secondary,
+                    ),
+                  ),
+                );
+              },
+            ),
             // 세로선
             Container(
               width: 2,
