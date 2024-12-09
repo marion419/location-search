@@ -38,8 +38,7 @@ dependencies:
   flutter_riverpod: ^2.6.1
   flutter_inappwebview: ^6.1.5
   geolocator: ^13.0.2
-  http: ^1.2.2
-  google_maps_flutter: ^2.10.0
+  kakaomap_webview: ^0.6.2
 
 dev_dependencies:
   flutter_test:
