@@ -24,8 +24,8 @@ class VworldRepository {
         final features = response.data['response']['result']
             ['featureCollection']['features'];
         final featureList = List.from(features);
-        final iterable = featureList.map((feat) {
-          return '${feat['properties']['emd_kor_nm']}';
+        final iterable = featureList.map((e) {
+          return '${e['properties']['emd_kor_nm']}';
         });
         return iterable.toList();
       }
