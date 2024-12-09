@@ -24,21 +24,21 @@ class _HomeSearchBarState extends State<HomeSearchBar> {
       child: Container(
         //padding: EdgeInsets.all(20),
         decoration: BoxDecoration(
-          border: Border.all(width: 2),
+          border: Border.all(
+            width: 2,
+            color: Colors.grey[500]!,
+          ),
           borderRadius: BorderRadius.circular(20),
         ),
         child: Row(
           children: [
             SizedBox(width: 10),
-            Icon(
-              Icons.search,
-              color: Colors.grey[400],
-            ),
+            Icon(Icons.search, color: Theme.of(context).colorScheme.secondary),
             SizedBox(width: 10),
             Container(
               width: 2,
               height: 20,
-              color: Colors.grey[400],
+              color: Theme.of(context).colorScheme.secondary,
             ),
             SizedBox(width: 10),
             Flexible(
@@ -77,7 +77,10 @@ class _HomeSearchBarState extends State<HomeSearchBar> {
                     width: 50,
                     height: 50,
                     color: Colors.transparent,
-                    child: Icon(Icons.gps_fixed),
+                    child: Icon(
+                      Icons.gps_fixed,
+                      color: Theme.of(context).colorScheme.primary,
+                    ),
                   ),
                 );
               },

@@ -27,7 +27,7 @@ class DetailPage extends StatelessWidget {
               child: Icon(
                 Icons.home,
                 size: 25,
-                color: Colors.black,
+                color: Theme.of(context).colorScheme.primary,
               ),
             ),
           ),

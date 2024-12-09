@@ -49,7 +49,7 @@ class LocationListView extends StatelessWidget {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         //border: Border.all(color: Colors.grey[700]!),
-                        color: Colors.grey[200],
+                        color: Theme.of(context).colorScheme.tertiary,
                       ),
                       child: Padding(
                         padding: EdgeInsets.only(
@@ -84,6 +84,8 @@ class LocationListView extends StatelessWidget {
                                     child: Icon(
                                       Icons.location_on,
                                       size: 25,
+                                      color:
+                                          Theme.of(context).colorScheme.primary,
                                     ),
                                   ),
                                 )
@@ -92,8 +94,8 @@ class LocationListView extends StatelessWidget {
                             Text(
                               locations[index].category,
                               style: TextStyle(
-                                fontSize: 16,
-                              ),
+                                  fontSize: 16,
+                                  color: Theme.of(context).colorScheme.primary),
                             ),
                             Text(
                               locations[index].roadAddress,

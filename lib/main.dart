@@ -15,14 +15,19 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        scaffoldBackgroundColor: Colors.white,
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
+        colorScheme: ColorScheme.fromSeed(
+          brightness: Brightness.light,
+          seedColor: Color(0xff89A8B2),
+          secondary: Color(0xffB3C8CF),
+          tertiary: Color.fromARGB(255, 231, 229, 225),
+        ),
+        scaffoldBackgroundColor: Color.fromARGB(255, 246, 245, 241),
         appBarTheme: AppBarTheme(
           backgroundColor: Colors.transparent,
           titleTextStyle: TextStyle(
             fontWeight: FontWeight.bold,
             color: Colors.black,
-            fontSize: 20,
+            fontSize: 18,
           ),
         ),
         inputDecorationTheme: InputDecorationTheme(
