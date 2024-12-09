@@ -29,35 +29,48 @@ class MapPage extends StatelessWidget {
                 lng: double.parse(location.longitude) / 10000000,
                 showZoomControl: true,
                 onTapMarker: (p0) {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return DetailPage(location);
-                      },
-                    ),
-                  );
+                  if (location.link.startsWith('https')) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return DetailPage(location);
+                        },
+                      ),
+                    );
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text('홈페이지가 존재하지 않습니다'),
+                        duration: Duration(seconds: 1),
+                      ),
+                    );
+                  }
                 },
               ),
               SizedBox(height: 50),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  InformationBox(
-                    title: '시설 이름',
-                    information: location.title,
-                  ),
-                  SizedBox(height: 25),
-                  InformationBox(
-                    title: '주소',
-                    information: location.roadAddress,
-                  ),
-                  SizedBox(height: 25),
-                  InformationBox(
-                    title: '시설 분류',
-                    information: location.category,
-                  )
-                ],
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 40),
+                width: double.infinity,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    InformationBox(
+                      title: '시설 이름',
+                      information: location.title,
+                    ),
+                    SizedBox(height: 25),
+                    InformationBox(
+                      title: '주소',
+                      information: location.roadAddress,
+                    ),
+                    SizedBox(height: 25),
+                    InformationBox(
+                      title: '시설 분류',
+                      information: location.category,
+                    )
+                  ],
+                ),
               ),
             ],
           ),
