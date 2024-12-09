@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_location_app/ui/pages/detail/detail_page.dart';
 import 'package:flutter_location_app/ui/pages/home/home_page.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

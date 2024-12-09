@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_location_app/core/geolocator_helper.dart';
 import 'package:flutter_location_app/ui/pages/home/home_view_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:geolocator/geolocator.dart';
 
 class HomeSearchBar extends StatelessWidget {
   const HomeSearchBar({
@@ -49,9 +51,19 @@ class HomeSearchBar extends StatelessWidget {
               ),
             ),
             SizedBox(width: 10),
-            GestureDetector(
-              onTap: () {},
-              child: Icon(Icons.gps_fixed),
+            Consumer(
+              builder: (context, ref, child) {
+                return GestureDetector(
+                  onTap: () async {
+                    final currentLocation =
+                        await GeolocatorHelper.getPosition();
+                    if (currentLocation != null) {
+                      final viewModel = ref.read(homeViewModel.notifier);
+                    }
+                  },
+                  child: Icon(Icons.gps_fixed),
+                );
+              },
             ),
             SizedBox(width: 10),
           ],
