@@ -59,9 +59,17 @@ class HomeSearchBar extends StatelessWidget {
                         await GeolocatorHelper.getPosition();
                     if (currentLocation != null) {
                       final viewModel = ref.read(homeViewModel.notifier);
+                      viewModel.searchByLatLng(
+                          currentLocation.latitude, currentLocation.longitude);
                     }
+                    print('tap');
                   },
-                  child: Icon(Icons.gps_fixed),
+                  child: Container(
+                    width: 50,
+                    height: 50,
+                    color: Colors.transparent,
+                    child: Icon(Icons.gps_fixed),
+                  ),
                 );
               },
             ),

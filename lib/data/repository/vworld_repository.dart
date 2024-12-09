@@ -5,7 +5,7 @@ class VworldRepository {
     validateStatus: (status) => true,
   ));
 
-  Future<String> findDistrict(String lat, String lng) async {
+  Future<String> findDistrict(double lat, double lng) async {
     final response = await _client.get(
       'https://api.vworld.kr/req/data',
       queryParameters: {
