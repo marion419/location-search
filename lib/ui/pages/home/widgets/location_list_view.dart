@@ -44,16 +44,34 @@ class LocationListView extends StatelessWidget {
                         color: Colors.grey[200],
                       ),
                       child: Padding(
-                        padding: EdgeInsets.all(20),
+                        padding: EdgeInsets.only(
+                            left: 20, top: 20, bottom: 20, right: 10),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              locations[index].title,
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                              ),
+                            Row(
+                              children: [
+                                Text(
+                                  locations[index].title,
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                Spacer(),
+                                GestureDetector(
+                                  onTap: () {},
+                                  child: Container(
+                                    width: 50,
+                                    height: 50,
+                                    color: Colors.transparent,
+                                    child: Icon(
+                                      Icons.location_on,
+                                      size: 25,
+                                    ),
+                                  ),
+                                )
+                              ],
                             ),
                             Text(
                               locations[index].category,
