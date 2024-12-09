@@ -21,8 +21,8 @@ class Location {
           category: map['category'],
           roadAddress: map['roadAddress'],
           link: map['link'],
-          latitude: map['mapx'],
-          longitude: map['mapy'],
+          latitude: map['mapy'],
+          longitude: map['mapx'],
         );
 
   Map<String, dynamic> toJson() {
@@ -31,8 +31,8 @@ class Location {
       'category': category,
       'roadAddress': roadAddress,
       'link': link,
-      'mapx': latitude,
-      'mapy': longitude,
+      'mapy': latitude,
+      'mapx': longitude,
     };
   }
 }
