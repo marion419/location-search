@@ -36,6 +36,13 @@ class LocationListView extends StatelessWidget {
                             return DetailPage(locations[index]);
                           }),
                         );
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text('홈페이지가 존재하지 않습니다'),
+                            duration: Duration(seconds: 1),
+                          ),
+                        );
                       }
                     },
                     child: Container(
