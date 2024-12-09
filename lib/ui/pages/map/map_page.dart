@@ -14,6 +14,26 @@ class MapPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('지도 보기'),
+        actions: [
+          Container(
+            padding: EdgeInsets.only(right: 30),
+            width: 50,
+            height: 50,
+            color: Colors.transparent,
+            child: GestureDetector(
+              onTap: () {
+                while (Navigator.canPop(context)) {
+                  Navigator.pop(context);
+                }
+              },
+              child: Icon(
+                Icons.home,
+                size: 25,
+                color: Colors.black,
+              ),
+            ),
+          ),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
