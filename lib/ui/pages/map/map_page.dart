@@ -39,7 +39,12 @@ class MapPage extends StatelessWidget {
         child: Center(
           child: Column(
             children: [
-              SizedBox(height: 50),
+              SizedBox(height: 30),
+              Text(
+                '맵 마커를 클릭하면 웹 사이트로 이동합니다',
+                style: TextStyle(color: Colors.grey[800]),
+              ),
+              SizedBox(height: 20),
               KaKaoMap(location: location),
               Container(
                 decoration: BoxDecoration(
