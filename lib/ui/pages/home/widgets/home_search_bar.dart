@@ -4,10 +4,19 @@ import 'package:flutter_location_app/ui/pages/home/home_view_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:geolocator/geolocator.dart';
 
-class HomeSearchBar extends StatelessWidget {
-  const HomeSearchBar({
-    super.key,
-  });
+class HomeSearchBar extends StatefulWidget {
+  @override
+  State<HomeSearchBar> createState() => _HomeSearchBarState();
+}
+
+class _HomeSearchBarState extends State<HomeSearchBar> {
+  TextEditingController textEditingController = TextEditingController();
+
+  @override
+  void dispose() {
+    textEditingController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +46,7 @@ class HomeSearchBar extends StatelessWidget {
               child: Consumer(
                 builder: (context, ref, child) {
                   return TextField(
+                    controller: textEditingController,
                     onSubmitted: (value) {
                       if (value.trim().isNotEmpty) {
                         final viewModel = ref.read(homeViewModel.notifier);
@@ -62,7 +72,6 @@ class HomeSearchBar extends StatelessWidget {
                       viewModel.searchByLatLng(
                           currentLocation.latitude, currentLocation.longitude);
                     }
-                    print('tap');
                   },
                   child: Container(
                     width: 50,
