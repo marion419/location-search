@@ -17,7 +17,8 @@ class HomeViewModel extends AutoDisposeNotifier<List<Location>> {
 
   Future<void> searchByLatLng(double lat, double lng) async {
     final query = await VworldRepository().findDistrict(lat, lng);
-    state = await locationRepository.findByLocation(query.toString().trim());
+    print(query);
+    state = await locationRepository.findByLocation(query[0]);
   }
 }
 
